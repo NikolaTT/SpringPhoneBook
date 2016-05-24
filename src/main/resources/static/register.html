@@ -1,0 +1,20 @@
+<div class="alert alert-danger" ng-show="controller.regerror">
+    Could not register. The username is taken.
+</div>
+
+<div class="alert alert-success" ng-show="controller.regsuccess">
+    Registered successfully.
+</div>
+<form role="form" ng-submit="controller.register()">
+    <div class="form-group">
+        <label for="regUsername">Username:</label> <input type="text"
+                                                       class="form-control" id="regUsername" name="regUsername"
+                                                       ng-model="controller.registerData.regUsername"/>
+    </div>
+    <div class="form-group">
+        <label for="regPassword">Password:</label> <input type="password"
+                                                       class="form-control" id="regPassword" name="regPassword"
+                                                       ng-model="controller.registerData.regPassword"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

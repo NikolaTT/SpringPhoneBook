@@ -1,0 +1,14 @@
+<div ng-show="authenticated">
+    <p ng-hide="hasContacts">You have no contacts</p>
+
+    <ul ng-show="hasContacts" ng-repeat="contact in controller.contacts.data | orderBy : 'id'">
+        <li>
+            Contact number: {{$index + 1}}
+            <ul>
+                <li>First name: {{contact.firstName}}</li>
+                <li>Last name: {{contact.lastName}}</li>
+                <li>Phone number: {{contact.phoneNumber}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

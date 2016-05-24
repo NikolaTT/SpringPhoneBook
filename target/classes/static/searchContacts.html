@@ -1,0 +1,58 @@
+<form role="form" ng-submit="controller.searchByFirstName()">
+    <div class="form-group">
+        <label for="firstname">Search by first name:</label> <input type="text"
+                                                                    class="form-control" id="firstname" name="firstname"
+                                                                    ng-model="controller.search.firstName"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<form role="form" ng-submit="controller.searchByLastName()">
+    <div class="form-group">
+        <label for="lastname">Search by last name:</label> <input type="text"
+                                                                  class="form-control" id="lastname" name="lastname"
+                                                                  ng-model="controller.search.lastName"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<form role="form" ng-submit="controller.searchByPhoneNumber()">
+    <div class="form-group">
+        <label for="phonenumber">Search by phone number:</label> <input type="text"
+                                                                        class="form-control" id="phonenumber"
+                                                                        name="phonenumber"
+                                                                        ng-model="controller.search.phoneNumber"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<div ng-show="authenticated">
+    <p>Results:</p>
+    <ul ng-repeat="contact in controller.contacts.data | orderBy : 'id'">
+        <li ng-show="
+        (searchByFirstName && contact.firstName == controller.search.param) ||
+        (searchByLastName && contact.lastName == controller.search.param) ||
+        (searchByPhoneNumber && contact.phoneNumber == controller.search.param)
+        ">
+            Result: {{$index + 1}}
+            <ul>
+                <li>First name: {{contact.firstName}}</li>
+                <li>Last name: {{contact.lastName}}</li>
+                <li>Phone number: {{contact.phoneNumber}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div ng-show="authenticated">
+    <p>Recent searches:</p>
+    <ul ng-repeat="search in controller.searches.data">
+        <li>
+            Result: {{$index + 1}}
+            <ul>
+                <li>Search by: {{search.type}}</li>
+                <li>Query: {{search.query}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+<form role="form" ng-submit="controller.exportSingleContact()">
+    <div class="form-group">
+        <label for="contactNumber">Export single contact by number:</label>
+        <input type="text"
+               class="form-control" id="contactNumber" name="contactNumber"
+               ng-model="controller.contactNumber.number"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Export</button>
+</form>
+
+<form role="form" ng-submit="controller.exportAllContacts()">
+
+    <button type="submit" class="btn btn-primary">Export All</button>
+</form>
