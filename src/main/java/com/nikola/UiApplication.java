@@ -53,7 +53,7 @@ public class UiApplication {
 
         Map<String, Object> response = new HashMap<>();
 
-        if(null != accountRepository.findByUsername(account.getUsername())){
+        if(null != accountRepository.findByUsernameAndPassword(account.getUsername(), account.getPassword())){
             response.put("response", "OK");
             request.getSession().setAttribute("user", account.getUsername());
         }
