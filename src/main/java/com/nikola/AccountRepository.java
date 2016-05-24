@@ -12,5 +12,6 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
     Page<Account> findAll(Pageable pageable);
 
     Account findByUsername(String username);
-
+    
+    Account findByUsernameAndPassword(String username, String password);
 }
